@@ -1,0 +1,28 @@
+package com.piantada1.piantada1.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.piantada1.piantada1.model.Customer;
+import com.piantada1.piantada1.model.PlushieItem;
+import com.piantada1.piantada1.service.ShoppingCartService;
+
+@Controller
+public class ShoppingCartController {
+
+	@Autowired
+	private ShoppingCartService cartService;
+	
+	@GetMapping ("/cart")
+	public String showShoppingCart(Model model, Customer customer) {
+		
+		List<PlushieItem> plushieItems = cartService.listPlushieItems(customer);
+		model.addAttribute("plushieItems", plushieItems);
+		
+		return "shopping_cart";
+	}
+}

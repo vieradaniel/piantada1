@@ -67,7 +67,7 @@
 	</div>
 
 
-
+<!--  
 		<th:block th:each= "plushie : ${plushies}">
 		<div class="card" style="width: 18rem;">
   			<img th:src="@{/images/{name}.jpg(name=${plushie.name})}" class="card-img-top" alt="...">
@@ -79,35 +79,30 @@
     			<a th:href="@{'/delete/' + ${plushie.id}}"class="btn btn-primary">Delete</a>
   			</div>
 		</div>
-		
     	</th:block> 
-    	
-   <!--   <h1>Catalogo</h1>
+   	
+   --> 	
 
-	<div>
+    	
+    <h1>Catalogo</h1>
+
+	<div class="plushie-card-container">
 		<th:block th:each= "plushie : ${plushies}">
-    	<div>
-        	<img th:src="@{/images/{name}.jpg(name=${plushie.name})}>
-        	<p></p>
-        	<p></p>
-        	<button></button>
+    	<div class = "plushie-card">
+    		<div class = "plushie-card-img-container">
+        	<img class = "plushie-card-img" th:src="@{/images/{name}.jpg(name=${plushie.name})}">
+        	</div>
+        	<p class="card-text" th:text= "${plushie.name}"></p>
+        	<p class="card-text" th:text="${plushie.price}"></p>
+        	<button><a th:href="@{'/view/' + ${plushie.id}}" class="btn btn-primary">View</a></button>
     	</div>
+    	
 	</div>
-    	-->
+    	
     	
     	
  </main>
-<!-- 
-	<p th:text="'Hello, ' + ${name} + '!'" ></p>
-    <table>
-    	<th:block th:each= "plushie : ${plushies}">
-    		<tr>
-    			<td th:text= "${plushie.id}">...</td>
-    			<td th:text= "${plushie.name}">...</td>
-    		</tr>
-    	</th:block>
-    </table>
--->
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

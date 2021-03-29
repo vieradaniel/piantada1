@@ -23,6 +23,13 @@ h2{
 	text-align:center;
 }
 
+.piantada-logo{
+	width: 80px;
+}
+.navbar-toggler{
+	border:none;
+}
+
 
 .card{
 	margin-top: 1rem;

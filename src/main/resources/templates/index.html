@@ -95,6 +95,8 @@
         	<p class="card-text" th:text= "${plushie.name}"></p>
         	<p class="card-text" th:text="${plushie.price}"></p>
         	<a th:href="@{'/view/' + ${plushie.id}}" class="btn btn-primary">View</a>
+        	<a th:href="@{'/edit/' + ${plushie.id}}" class="btn btn-primary">Edit</a>
+    		<a th:href="@{'/delete/' + ${plushie.id}}"class="btn btn-primary">Delete</a>
     	</div>
     	
 	</div>

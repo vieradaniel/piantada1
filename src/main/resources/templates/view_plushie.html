@@ -13,14 +13,18 @@
   </head>
 
   <body>
+  
 	 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <div class="container-fluid">
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">Piantada</a>
+	    <a class="navbar-brand" href="/"><img class= "piantada-logo" src="/images/logo-vectorizado-PIANTADAnbb.png" alt=""></a>
 	    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	      	<li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="/">Home</a>
+	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link active" aria-current="page" href="/catalogo">Catálogo</a>
 	        </li>
@@ -34,8 +38,8 @@
 	          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
 	        </li>
 	      </ul>
-	      <form class="d-flex">
-	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	      <form  method = "GET" class="d-flex">
+	        <input  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 	        <button class="btn btn-outline-success" type="submit">Search</button>
 	      </form>
 	    </div>
@@ -57,7 +61,10 @@
   		
   
 	
-	  
+<script
+  src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+  data-preference-id="${preference.id}">
+</script>
 	  
 	
 

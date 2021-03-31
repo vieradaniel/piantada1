@@ -26,18 +26,11 @@ public class PlushieItem implements Serializable {
 	@JoinColumn(name="plushie_id")
 	private Plushie plushie;
 	
-	@ManyToOne
-	@JoinColumn(name="customer_id")
-	private Customer customer;
+	//@ManyToOne
+	//@JoinColumn(name="customer_id")
+	//private User user;
 	
-	public Customer getCustomer() {
-		return customer;
-	}
-
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+	
 
 
 	private Double price;
@@ -48,6 +41,7 @@ public class PlushieItem implements Serializable {
 		
 	}
 
+	
 
 	public Long getId() {
 		return id;
@@ -87,8 +81,20 @@ public class PlushieItem implements Serializable {
 	public void setAmmount(Integer ammount) {
 		this.ammount = ammount;
 	}
+
+/*
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
-	
+	*/
 	
 	
 }

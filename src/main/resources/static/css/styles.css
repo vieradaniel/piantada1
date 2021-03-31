@@ -61,7 +61,7 @@ h2{
 	display:flex;
 	flex-wrap:wrap;
 	background-color:#f3f3f7;
-	margin: 1rem;
+	padding: 1rem;
 	
 }
 .plushie-card{

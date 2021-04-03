@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name= "users")
 public class Usuario {
@@ -13,6 +14,7 @@ public class Usuario {
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
+	
 	private Long id;
 	
 	private String username;

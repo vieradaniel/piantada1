@@ -21,16 +21,7 @@ import javax.persistence.OneToMany;
 		private Long id;	
 		@Column(name="name", length = 50)
 		private String name;
-		private String imageLink;
-		public String getImageLink() {
-			return imageLink;
-		}
-
-
-		public void setImageLink(String imageLink) {
-			this.imageLink = imageLink;
-		}
-		
+				
 		//private List<Category> categories;
 
 		private Double price;
@@ -38,12 +29,38 @@ import javax.persistence.OneToMany;
 		/*
 		@OneToMany(mappedBy="plushie", cascade=CascadeType.ALL,orphanRemoval=true)
 		private Set<Category> categories; // this can be a class*/
-		private Integer ammount;
+		
+		
+		private int stock;
 		
 			
 		public Plushie() {
 			// TODO Auto-generated constructor stub
 		}
+
+
+		
+		public boolean hasStock(int amount) {
+			return (this.getStock() > 0) && (amount <=this.getStock());
+		}
+		
+		public void decreaseStock(int amount) {
+			this.stock -= amount;
+		}
+		
+		
+		public Integer getStock() {
+			return stock;
+		}
+
+
+
+
+		public void setStock(Integer stock) {
+			this.stock = stock;
+		}
+
+
 
 
 		public Long getId() {
@@ -76,15 +93,7 @@ import javax.persistence.OneToMany;
 		}
 
 
-		public Integer getAmmount() {
-			return ammount;
-		}
-
-
-		public void setAmmount(Integer ammount) {
-			this.ammount = ammount;
-		}
-
+		
 /*
 		public Set<Category> getCategories() {
 			return categories;

@@ -22,26 +22,34 @@ public class PlushieItem implements Serializable {
 	@Id
 	private Long id;
 	
-	@ManyToOne          // is it already inferred? 
+	@OneToOne          // is it already inferred? 
 	@JoinColumn(name="plushie_id")
 	private Plushie plushie;
 	
-	//@ManyToOne
-	//@JoinColumn(name="customer_id")
-	//private User user;
+	@ManyToOne
+	@JoinColumn(name="users_id")
+	private Usuario user;
 	
 	
 
 
 	private Double price;
-	private Integer ammount;
+	private int ammount;
 	
 	
 	public PlushieItem() {
 		
 	}
 
+	public boolean canUpdateAmmount(Integer ammount) {
+		return ammount == null || ammount <= 0 || this.getPlushie().hasStock(ammount);
+	}
 	
+	public void addAmmount(int ammount) {
+		if (ammount > 0) {
+			this.ammount= this.ammount + ammount;
+		}
+	}
 
 	public Long getId() {
 		return id;
@@ -73,7 +81,7 @@ public class PlushieItem implements Serializable {
 	}
 
 
-	public Integer getAmmount() {
+	public int getAmmount() {
 		return ammount;
 	}
 
@@ -82,19 +90,19 @@ public class PlushieItem implements Serializable {
 		this.ammount = ammount;
 	}
 
-/*
 
-	public User getUser() {
+
+	public Usuario getUsuario() {
 		return user;
 	}
 
 
 
-	public void setUser(User user) {
+	public void setUsuario(Usuario user) {
 		this.user = user;
 	}
 	
-	*/
+	
 	
 	
 }

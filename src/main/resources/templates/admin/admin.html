@@ -19,7 +19,7 @@
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <a class="navbar-brand" href="/"><img class= "piantada-logo" src="/images/logo-pequeño.png" alt=""></a>
+	    <a class="navbar-brand" href="/"><img class= "piantada-logo" src="/images/logo-vectorizado-PIANTADAnbb.png" alt=""></a>
 	    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 	        <li class="nav-item">
@@ -32,9 +32,19 @@
 	          <a class="nav-link" href="#">Categorias</a>
 	        </li>
 	        <li class="nav-item">
+	          <a class="nav-link" href="admin/new">New</a>
+	        </li>
+	        <li class="nav-item">
 	          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
 	        </li>
+	        
 	      </ul>
+	      <!-- 
+	      <form th:action="@{/logout}" method="post"> 
+                <input type="submit" value="Logout"/> 
+            </form>
+	       -->
+	      
 	      <form class="d-flex">
 	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 	        <button class="btn btn-outline-success" type="submit">Search</button>
@@ -45,7 +55,7 @@
   
 	  
 <main>
-	<h2>Catalogo</h2>
+	<h2>ADMIN PAGE</h2>
 
 	<div class="plushie-card-container">
 		<th:block th:each= "plushie : ${plushies}">
@@ -56,6 +66,8 @@
         	<p class="card-text" th:text= "${plushie.name}"></p>
         	<p class="card-text" th:text="${plushie.price}"></p>
         	<a th:href="@{'/view/' + ${plushie.id}}" class="btn btn-primary">View</a>
+        	<a th:href="@{'admin/edit/' + ${plushie.id}}" class="btn btn-primary">Edit</a>
+    		<a th:href="@{'admin/delete/' + ${plushie.id}}"class="btn btn-primary">Delete</a>
     	</div>
     	
 	</div>

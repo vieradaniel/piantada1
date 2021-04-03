@@ -48,13 +48,22 @@ public class PlushieController {
 		return "listView";
 	}
 	
-	@RequestMapping("/new")
+	@RequestMapping("/admin")
+	public String adminView(Model model) {
+		
+		List<Plushie> plushieList = service.listAll();
+		model.addAttribute("plushies",plushieList);
+		
+		return "admin/admin";
+	}
+	
+	@RequestMapping("admin/new")
 	public String showNewPlushieForm(Model model) {
 		
 		Plushie plushie = new Plushie();
 		model.addAttribute("plushie", plushie);
 		
-		return "new_plushie";
+		return "admin/new_plushie";
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -72,17 +81,17 @@ public class PlushieController {
 	 * */
 	
 	
-	@RequestMapping("/edit/{id}")
+	@RequestMapping("admin/edit/{id}")
 	public ModelAndView showEditPlushieForm(@PathVariable(name= "id") Long id) {
 		
-		ModelAndView mav = new ModelAndView("edit_plushie");
+		ModelAndView mav = new ModelAndView("admin/edit_plushie");
 		Optional<Plushie> plushie = service.get(id);
 		mav.addObject("plushie", plushie);
 		
 		return mav;
 	}
 	
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("admin/delete/{id}")
 	public String deletePlushie(@PathVariable (name="id") Long id){
 		service.delete(id);
 		return "redirect:/";
@@ -117,7 +126,7 @@ public class PlushieController {
 	}
 	
 	*/
-	
+	/*
 	@GetMapping("/{name}")
 	public String view(@PathVariable String name, Model model) {
 		
@@ -128,6 +137,7 @@ public class PlushieController {
 		
 		return "view_plushie";
 	}
+	*/
 	/*
 	@GetMapping("/{category}")
 	public String view(@PathVariable String name, Model model) {

@@ -18,7 +18,7 @@
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">Piantada</a>
+	    <a class="navbar-brand" href="/"><img class= "piantada-logo" src="/images/logo-pequeño.png" alt=""></a>
 	    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 	        <li class="nav-item">
@@ -44,20 +44,24 @@
   
   
   	<div>
-  		<h2> Create New Plushie</h2>
+  		<h2> Edit plushie</h2>
   		<br/>
   		<form action="#" th:action= "@{/save}" th:object="${plushie}" method = "POST">
   			<tr>
-  				<td> Product name: </td>
-  				<td><input type="text" th:field="*{name}"/></td>
+  				<td> Plushie id: </td>
+  				<td><input type="text" th:field="*{id}" readonly="readonly"/></td>
   			</tr>
   			<tr>
-  				<td> Price: </td>
+  				<td> Plushie name: </td>
+  				<td><input type="text" th:field="*{name}" /></td>
+  			</tr>
+  			<tr>
+  				<td> Plushie price: </td>
   				<td><input type="text" th:field= "*{price}"/></td>
   			</tr>
   			<tr>
   			  <td colspan="2"><button type="submit">Save</button></td>
-  		
+  			</tr>
   		</form>
   	
   	</div>

@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.piantada1.piantada1.service.UsuarioService;
 
@@ -36,10 +37,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 		.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+		.antMatchers("/index.html").permitAll()
+		.antMatchers("/catalogo").authenticated()
+		.antMatchers("/admin/**").authenticated()
+		.antMatchers("/new").authenticated()
+		.antMatchers("/admin/index").hasRole("ADMIN")
+		.antMatchers("/management/index").hasAnyRole("ADMIN","MANAGER")
 		.and()
-		.httpBasic();
+		//.logout().logoutRequestMatcher(new AntPathRequestMatcher("logout")).logoutSuccessUrl("/")
+		.httpBasic()
+		;
 	}
 
 }

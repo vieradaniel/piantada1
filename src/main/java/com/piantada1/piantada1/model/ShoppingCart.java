@@ -26,9 +26,22 @@ public class ShoppingCart implements Serializable {
 	@JoinColumn(name = "plushieitem_id")
 	private List<PlushieItem> plushieItems;
 	
-	public ShoppingCart() {
-		// TODO Auto-generated constructor stub
+	public ShoppingCart(List <PlushieItem> plushieItems) {
+		this.plushieItems = plushieItems;
 	}
+	
+	public boolean isEmpty() {
+		return plushieItems.isEmpty();
+	}
+	
+	public void removePlushieItem(PlushieItem plushieItem) {
+		plushieItems.removeIf(item -> item.getId() == plushieItem.getId());
+	}
+	
+	public void clearItems() {
+		plushieItems.clear();
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -46,6 +59,14 @@ public class ShoppingCart implements Serializable {
 		this.plushieItems = plushieItems;
 	}
 	
+	public PlushieItem findPlushieItemByPlushie(Long id) {
+		for (PlushieItem item: this.plushieItems) {
+			if (item.getPlushie().getId().equals(id)) {
+				return item;
+			}
+		}
+		return null;
+	}
 	
 	
 }

@@ -21,18 +21,18 @@ class Piantada1ApplicationTests {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	
+	/*
 	@Test
 	public void createUserTest() {
 		
 		Usuario user = new Usuario();
-		user.setId(3L);
-		user.setUsername("billsioso");
+		user.setId(4L);
+		user.setUsername("Robert");
 		user.setPassword(encoder.encode("123456"));
 		Usuario retorno = repo.save(user);
 		
 		assertTrue(retorno.getPassword().equalsIgnoreCase(user.getPassword()));
 		
 	}
-
+*/
 }

@@ -21,7 +21,7 @@ class Piantada1ApplicationTests {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	/***
+	
 	@Test
 	public void createUserTest() {
 		
@@ -34,5 +34,5 @@ class Piantada1ApplicationTests {
 		assertTrue(retorno.getPassword().equalsIgnoreCase(user.getPassword()));
 		
 	}
-*/
+
 }
